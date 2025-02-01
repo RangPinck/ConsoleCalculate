@@ -29,6 +29,12 @@
 
         public double GetDegree(double value, double degree)
         {
+
+            if ((degree % 1 >= 0.00000000000000000001 || degree % 1 <= 0.9999999999999999999) && (value < 0 || value == 1))
+            {
+                throw new Exception("Не возмжно определить показательную степень числа, которое меньше 0 или равно еденице!");
+            }
+
             return Math.Pow(value, degree);
         }
 
@@ -40,7 +46,7 @@
                 throw new Exception("Не возмжно найти 0-вой корень!");
             }
 
-            if (value < 0)
+            if (value < 0 && root % 2 == 1)
             {
                 throw new Exception("Не возмжно найти корень отрицательного числа!");
             }

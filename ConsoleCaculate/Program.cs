@@ -69,7 +69,16 @@
                             Console.WriteLine("Примечание: перыое число - число, которое возводится в степень; второе число - степень\n");
 
                             GetData(2);
-                            result = calc.GetDegree(ValueOne, ValueTwo!.Value);
+
+                            try
+                            {
+                                result = calc.GetDegree(ValueOne, ValueTwo!.Value);
+                            }
+                            catch (Exception ex)
+                            {
+                                PrintError(ex.Message);
+                                result = null;
+                            }
                             break;
                         case 6:
                             Console.WriteLine("Нахождение корня");
@@ -163,7 +172,7 @@
                 }
 
                 if (result != null) Console.WriteLine($"Результат вычислений: {result}\n");
-                
+
                 result = null;
             }
 
