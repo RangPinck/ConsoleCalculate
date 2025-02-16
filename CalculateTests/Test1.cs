@@ -84,63 +84,112 @@ namespace CalculateTests
             Assert.AreEqual(assets, equel);
         }
 
-        //[TestMethod]
-        //public void TestMethod1()
-        //{
-        //    Calculator calc = new Calculator();
+        [TestMethod]
+        public void Test_Log_RealNumbers()
+        {
+            Calculator calc = new Calculator();
 
+            double assets = calc.GetLog(Math.Exp(1), null);
+            double equel = 1;
 
-        //    Assert.
-        //}
+            Assert.AreEqual(assets, equel);
+        }
 
-        //[TestMethod]
-        //public void TestMethod1()
-        //{
-        //    Calculator calc = new Calculator();
+        [TestMethod]
+        public void Test_Sin_RealNumbers()
+        {
+            Calculator calc = new Calculator();
 
+            double assets = calc.GetSin(Math.PI / 2);
+            double equel = 1;
 
-        //    Assert.
-        //}
+            Assert.AreEqual(assets, equel);
+        }
 
+        [TestMethod]
+        public void Test_Ctan_RealNumbers()
+        {
+            Calculator calc = new Calculator();
 
-        //Деление на 0
-        //[TestMethod]
-        //public void TestMethod1()
-        //{
-        //    Calculator calc = new Calculator();
+            double assets = calc.GetCtan(Math.PI / 4);
+            double equel = 1;
 
+            Assert.AreEqual(assets, equel);
+        }
 
-        //    Assert.
-        //}
+        [TestMethod]
+        public void Test_Divide_RealNumbers_DevideByZero()
+        {
+            Calculator calc = new Calculator();
+            bool isException = false;
 
-        //вызов эксешона при возведении в степень
-        //[TestMethod]
-        //public void TestMethod1()
-        //{
-        //    Calculator calc = new Calculator();
+            try
+            {
+                double assets = calc.GetDivide(1.5, 0);
 
+            }
+            catch (Exception ex)
+            {
+                isException = true;
+            }
 
-        //    Assert.
-        //}
+            Assert.IsTrue(isException);
+        }
 
-        //вызов эксешона при получнеии корня числа
-        //[TestMethod]
-        //public void TestMethod1()
-        //{
-        //    Calculator calc = new Calculator();
+        [TestMethod]
+        public void Test_Divide_RealNumbers_DegreeException()
+        {
+            Calculator calc = new Calculator();
+            bool isException = false;
 
+            try
+            {
+                double assets = calc.GetDegree(1, 0.5);
+            }
+            catch (Exception ex)
+            {
+                isException = true;
+            }
 
-        //    Assert.
-        //}
+            Assert.IsTrue(isException);
+        }
 
-        //вызов исключения при попытке получения процента у разных знаков
-        //[TestMethod]
-        //public void TestMethod1()
-        //{
-        //    Calculator calc = new Calculator();
+        [TestMethod]
+        public void Test_Root_RealNumbers_RootOfZero()
+        {
+            Calculator calc = new Calculator();
 
+            bool isException = false;
 
-        //    Assert.
-        //}
+            try
+            {
+                double assets = calc.GetRoot(2, 0);
+            }
+            catch (Exception ex)
+            {
+                isException = true;
+            }
+
+            Assert.IsTrue(isException);
+        }
+
+        [TestMethod]
+        public void Test_Log_RealNumbers_LogOfBaseOne()
+        {
+            Calculator calc = new Calculator();
+
+            bool isException = false;
+
+            try
+            {
+                double assets = calc.GetLog(5,1);
+            }
+            catch (Exception ex)
+            {
+                isException = true;
+            }
+
+            Assert.IsTrue(isException);
+        }
     }
 }

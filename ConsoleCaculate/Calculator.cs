@@ -106,7 +106,9 @@
                 throw new Exception("Значение для определения катангенса не может быть равно 0");
             }
 
-            double ctan = Math.Cos(value) / Math.Sin(value);
+            double cos = Math.Cos(value);
+
+            double ctan = cos / sin;
 
             return ctan;
         }
