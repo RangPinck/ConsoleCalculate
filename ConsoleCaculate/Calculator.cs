@@ -1,6 +1,6 @@
 ﻿namespace ConsoleCaculate
 {
-    internal class Calculator
+    public class Calculator
     {
         public double GetSumm(double valueOne, double valueTwo)
         {
@@ -54,14 +54,17 @@
             return Math.Exp(1 / root * Math.Log(value));
         }
 
-        public double GetProcent(double valueOne, double valueTwo)
+        public double GetProcent(double value, double procent)
         {
-            if (valueOne < 0 && valueTwo >= 0 || valueTwo < 0 && valueOne >= 0)
+            switch (procent)
             {
-                throw new Exception("Проценты от значений с разными знакоми определить невозможно!");
+                case > 0:
+                    return (value * procent) / 100;
+                case < 0:
+                    return (value * procent * -1) / 100 + value;
+                default:
+                    return 0;
             }
-
-            return (valueOne * valueTwo) / 100;
         }
 
         public double GetLog(double value, double? footing)
